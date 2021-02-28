@@ -11,15 +11,15 @@ resource "aws_ecs_task_definition" "main" {
       "environment": [
           {
               "name": "DEVICE_NAME",
-              "value": ""
+              "value": "${var.device_selector}"
           },
           {
               "name": "GROUP_ID",
-              "value": ""
+              "value": "${var.kafka_group_id}"
           },
           {
               "name": "AUDIO_UPLOAD_EVENT",
-              "value": ""
+              "value": "${var.kafka_audio_upload_event}"
           },
           {
               "name": "KAFKA_SERVER",
@@ -35,11 +35,11 @@ resource "aws_ecs_task_definition" "main" {
           },
           {
               "name": "ENCODE_FORMAT",
-              "value": ""
+              "value": "${var.kafka_encode_format}"
           },
           {
               "name": "INFERENCE_EVENT",
-              "value": ""
+              "value": "${var.kafka_inference_event}"
           },
           {
               "name": "BUCKET_NAME",

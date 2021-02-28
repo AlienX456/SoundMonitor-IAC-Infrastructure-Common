@@ -105,3 +105,10 @@ variable "kafka_server" {
   description =  "Endpoint of kafkaserver"
 }
 
+/*
+  DEVICE
+*/
+
+variable "device_selector" {
+  description =  "Device to use"
+}
