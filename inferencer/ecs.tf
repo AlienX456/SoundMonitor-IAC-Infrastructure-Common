@@ -1,4 +1,4 @@
-data "aws_ecs_cluster" "ecs-inferencer" {
+data "aws_ecs_cluster" "inferencer" {
   cluster_name = "monitor-inferencers-cluster"
 }
 
@@ -11,7 +11,7 @@ data "aws_subnet" "main" {
 
 resource "aws_ecs_service" "main" {
   name = var.service-name
-  cluster = aws_ecs_cluster.ecs-inferencer.arn
+  cluster = data.aws_ecs_cluster.inferencer.arn
   task_definition = aws_ecs_task_definition.main.arn
   launch_type = "FARGATE"
   desired_count = 1
@@ -22,7 +22,7 @@ resource "aws_ecs_service" "main" {
   }
 
   network_configuration {
-    subnets          = [aws_subnet.main.id]
+    subnets          = [data.aws_subnet.main.id]
     assign_public_ip = true
   }
 
