@@ -4,7 +4,8 @@ data "aws_ecs_cluster" "ecs-inferencer" {
 
 data "aws_subnet" "main" {
     filter {
-    name   = "${var.soundmonitor-main-subnet}" 
+    name   = "tag:Name"
+    values = ["${var.soundmonitor-main-subnet}"]
   }
 }
 
