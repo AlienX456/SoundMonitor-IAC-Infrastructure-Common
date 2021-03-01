@@ -3,7 +3,7 @@
 */
 
 variable "cluster-name" {
-  default = "monitor-inferencers-cluster"
+  default = "sound-monitor-cluster"
 }
 
 /*
@@ -16,10 +16,6 @@ variable "service-name" {
 
 variable "sound-monitor-subnet" {
   description = "name subnet of SoundMonitorVPC"
-}
-
-variable "task-definition" {
-  description = "Task definition of the inference service"
 }
 
 variable "cpu" {
