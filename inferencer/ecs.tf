@@ -2,6 +2,12 @@ data "aws_ecs_cluster" "ecs-inferencer" {
   cluster_name = "monitor-inferencers-cluster"
 }
 
+data "aws_subnet" "main" {
+    filter {
+    name   = "${var.soundmonitor-main-subnet}" 
+  }
+}
+
 resource "aws_ecs_service" "main" {
   name = var.service-name
   cluster = aws_ecs_cluster.ecs-inferencer.arn
@@ -15,7 +21,7 @@ resource "aws_ecs_service" "main" {
   }
 
   network_configuration {
-    subnets          = [var.sound-monitor-subnet]
+    subnets          = [aws_subnet.main.id]
     assign_public_ip = true
   }
 

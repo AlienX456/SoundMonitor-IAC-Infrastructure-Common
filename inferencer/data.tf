@@ -2,16 +2,8 @@
   CLUSTER CONFIG
 */
 
-variable "family-name" {
-  default = "monitor-inferencer-adapa"
-}
-
 variable "cluster-name" {
   default = "monitor-inferencers-cluster"
-}
-
-variable "cluster-arn" {
-  description = "ARN of cluster for monitor events"
 }
 
 /*
@@ -23,7 +15,7 @@ variable "service-name" {
 }
 
 variable "sound-monitor-subnet" {
-  description = "subnet of SoundMonitorVPC"
+  description = "name subnet of SoundMonitorVPC"
 }
 
 variable "task-definition" {
