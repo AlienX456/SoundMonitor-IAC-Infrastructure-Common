@@ -14,7 +14,11 @@ variable "service-name" {
   default = "monitor-inferencer-service"
 }
 
-variable "sound-monitor-subnet" {
+variable "family-name" {
+  default = "monitor-inferencer"
+}
+
+variable "soundmonitor-main-subnet" {
   description = "name subnet of SoundMonitorVPC"
 }
 
