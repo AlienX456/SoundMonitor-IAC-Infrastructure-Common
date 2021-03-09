@@ -46,7 +46,7 @@ resource "aws_ecs_task_definition" "main" {
               "value": "${var.records_bucket_name}"
           },
           {
-              "name": "MAPPPER_URL",
+              "name": "MAPPER_URL",
               "value": "${var.mapper_url}"
           }
       ],
