@@ -58,6 +58,10 @@ variable "aws_inferencer_secret" {
   description = "AWS secret for inferencer"
 }
 
+variable "mapper_url" {
+  description = "URL of class mapper"
+}
+
 /*
   INEFERENCER-KAFKA CONFIGURATION
 */
