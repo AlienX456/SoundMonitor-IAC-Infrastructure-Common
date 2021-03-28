@@ -18,7 +18,7 @@ variable "family-name" {
   default = "monitor-inferencer"
 }
 
-variable "soundmonitor-main-subnet" {
+variable "soundmonitor_main_subnet" {
   description = "name subnet of SoundMonitorVPC"
 }
 
