@@ -18,12 +18,12 @@ resource "aws_ecs_task_definition" "main" {
               "value": "${var.kafka_group_id}"
           },
           {
-              "name": "AUDIO_UPLOAD_EVENT",
-              "value": "${var.kafka_audio_upload_event}"
+              "name": "DATA_UPLOAD_EVENT",
+              "value": "${var.kafka_data_upload_event}"
           },
           {
-              "name": "KAFKA_SERVER",
-              "value": "${var.kafka_server}"
+              "name": "KAFKA_BOOTSTRAP_SERVER_ONE",
+              "value": "${var.kafka_bootstrap_server_one}"
           },
           {
               "name": "AWS_KEY",
@@ -38,8 +38,8 @@ resource "aws_ecs_task_definition" "main" {
               "value": "${var.kafka_encode_format}"
           },
           {
-              "name": "INFERENCE_EVENT",
-              "value": "${var.kafka_inference_event}"
+              "name": "PROCESS_RESULT_EVENT",
+              "value": "${var.kafka_process_result_event}"
           },
           {
               "name": "BUCKET_NAME",

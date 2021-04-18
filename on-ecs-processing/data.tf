@@ -70,16 +70,21 @@ variable "kafka_group_id" {
   description = "Kafka inferencers group id"
 }
 
-variable "kafka_audio_upload_event" {
-  description = "Kafka event of audio uploading"
+variable "kafka_data_upload_event" {
+  description = "Kafka event of data uploading"
 }
-variable "kafka_inference_event" {
-  description = "Kafka event of inference"
+variable "kafka_process_result_event" {
+  description = "Kafka event of process result"
 }
 
 variable "kafka_encode_format" {
   description = "encode format"
 }
+
+variable "kafka_bootstrap_server_one" {
+  description =  "Endpoint of kafkaserver"
+}
+
 
 /*
   AWS ENTITIES
@@ -95,10 +100,6 @@ variable "ecr_image_repo" {
 
 variable "records_bucket_name" {
   description =  "audio files bucket NAME"
-}
-
-variable "kafka_server" {
-  description =  "Endpoint of kafkaserver"
 }
 
 /*
