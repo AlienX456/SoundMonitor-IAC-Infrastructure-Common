@@ -15,7 +15,7 @@ resource "aws_ecs_service" "main" {
   }
 
   network_configuration {
-    subnets          = [var.soundmonitor_main_subnet]
+    subnets          = [var.soundmonitor_mainsubnet]
     assign_public_ip = true
   }
 
