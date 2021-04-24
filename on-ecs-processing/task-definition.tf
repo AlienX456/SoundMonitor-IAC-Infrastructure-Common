@@ -55,7 +55,7 @@ resource "aws_ecs_task_definition" "main" {
       "logConfiguration": {
           "logDriver": "awslogs",
           "options": {
-              "awslogs-group": "/ecs/monitor-inferencer",
+              "awslogs-group": "/ecs/${var.service-name}",
               "awslogs-region": "us-east-1",
               "awslogs-stream-prefix": "ecs"
           }

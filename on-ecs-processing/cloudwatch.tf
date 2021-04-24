@@ -1,3 +1,3 @@
-resource "aws_cloudwatch_log_group" "monitor-inferencer" {
-  name = "/ecs/monitor-inferencer"
+resource "aws_cloudwatch_log_group" "service-cloudwatch" {
+  name = "/ecs/${var.service-name}"
 }

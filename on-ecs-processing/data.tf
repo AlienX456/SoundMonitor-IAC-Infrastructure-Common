@@ -11,11 +11,11 @@ variable "cluster-name" {
 */
 
 variable "service-name" {
-  default = "monitor-inferencer-service"
+  description = "Name of the ECS service"
 }
 
 variable "family-name" {
-  default = "monitor-inferencer"
+  description = "Family for task definition"
 }
 
 variable "soundmonitor_mainsubnet" {
