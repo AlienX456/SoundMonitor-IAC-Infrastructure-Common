@@ -68,5 +68,5 @@ resource "aws_ecs_task_definition" "main" {
   memory = "${var.memory}"
   requires_compatibilities = ["FARGATE"]
   network_mode = "awsvpc"
-  execution_role_arn = aws_iam_role.monitor-inferencer-task-execution-role.arn
+  execution_role_arn = aws_iam_role.task-execution-role.arn
 }
