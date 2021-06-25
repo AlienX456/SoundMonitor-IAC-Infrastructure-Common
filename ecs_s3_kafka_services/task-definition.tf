@@ -26,14 +26,6 @@ resource "aws_ecs_task_definition" "main" {
               "value": "${var.kafka_bootstrap_server_one}"
           },
           {
-              "name": "AWS_KEY",
-              "value": "${var.aws_inferencer_key}"
-          },
-          {
-              "name": "AWS_SECRET",
-              "value": "${var.aws_inferencer_secret}"
-          },
-          {
               "name": "ENCODE_FORMAT",
               "value": "${var.kafka_encode_format}"
           },
@@ -69,4 +61,5 @@ resource "aws_ecs_task_definition" "main" {
   requires_compatibilities = ["FARGATE"]
   network_mode = "awsvpc"
   execution_role_arn = aws_iam_role.task-execution-role.arn
+  task_role_arn = data.aws_iam_role.s3-role.arn
 }

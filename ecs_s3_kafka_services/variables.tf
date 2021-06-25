@@ -3,6 +3,7 @@
 */
 
 variable "cluster-name" {
+  description = "Name of the cluster were services are deployed"
   default = "sound-monitor-cluster"
 }
 
@@ -18,10 +19,10 @@ variable "family-name" {
   description = "Family for task definition"
 }
 
-variable "soundmonitor_mainsubnet" {
-  description = "ID of main subnet of SoundMonitorVPC"
+variable "number_of_tasks" {
+  description = "Number of the tasks to be deploy"
+  default = 1
 }
-
 variable "cpu" {
   description = "CPU cpu units"
 }
@@ -50,35 +51,29 @@ variable "aws_provider_secret" {
   INFERENCER
 */
 
-variable "aws_inferencer_key" {
-  description = "AWS key for inferencer"
-}
-
-variable "aws_inferencer_secret" {
-  description = "AWS secret for inferencer"
-}
-
 variable "mapper_url" {
   description = "URL of class mapper"
 }
 
 /*
-  INEFERENCER-KAFKA CONFIGURATION
+  KAFKA CONFIGURATION
 */
 
 variable "kafka_group_id" {
   description = "Kafka inferencers group id"
 }
 
-variable "kafka_data_upload_event" {
-  description = "Kafka event of data uploading"
+variable "kafka_upload_topic_name" {
+  description = "Name of the topic to upload the events"
 }
-variable "kafka_process_result_event" {
-  description = "Kafka event of process result"
+
+variable "kafka_result_topic_name" {
+  description = "Name of the topic to save the results"
 }
 
 variable "kafka_encode_format" {
   description = "encode format"
+  default = "utf-8"
 }
 
 variable "kafka_bootstrap_server_one" {
@@ -95,11 +90,11 @@ variable "ecr_image_tag" {
 }
 
 variable "ecr_image_repo" {
-  description = "Inferencer repo"
+  description = "Image repository"
 }
 
 variable "records_bucket_name" {
-  description =  "audio files bucket NAME"
+  description =  "Bucket name of the records to be processed"
 }
 
 /*
@@ -107,5 +102,5 @@ variable "records_bucket_name" {
 */
 
 variable "device_selector" {
-  description =  "Device to use"
+  description =  "Device cpu/gpu to use"
 }
