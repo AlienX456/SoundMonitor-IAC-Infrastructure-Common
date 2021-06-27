@@ -19,7 +19,7 @@ resource "aws_ecs_task_definition" "main" {
           },
           {
               "name": "DATA_UPLOAD_EVENT",
-              "value": "${var.kafka_data_upload_event}"
+              "value": "${var.kafka_upload_topic_name}"
           },
           {
               "name": "KAFKA_BOOTSTRAP_SERVER_ONE",
@@ -31,7 +31,7 @@ resource "aws_ecs_task_definition" "main" {
           },
           {
               "name": "PROCESS_RESULT_EVENT",
-              "value": "${var.kafka_process_result_event}"
+              "value": "${var.kafka_result_topic_name}"
           },
           {
               "name": "BUCKET_NAME",

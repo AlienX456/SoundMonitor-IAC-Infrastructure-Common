@@ -1,11 +1,3 @@
-/*
-  CLUSTER CONFIG
-*/
-
-variable "cluster-name" {
-  description = "Name of the cluster were services are deployed"
-  default = "sound-monitor-cluster"
-}
 
 /*
   SERVICE CONFIG
