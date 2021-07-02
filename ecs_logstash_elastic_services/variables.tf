@@ -26,6 +26,10 @@ variable "memory" {
   description = "Memory units"
 }
 
+variable "number_of_tasks" {
+  description = "Number of the tasks to be deploy"
+  default = 1
+}
 /*
   CONTAINER
 */
