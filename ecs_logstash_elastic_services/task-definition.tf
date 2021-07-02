@@ -4,7 +4,7 @@ resource "aws_ecs_task_definition" "main" {
   [
     {
       "name": "sound-monitor-container",
-      "image": "${var.aws_account_id}.dkr.ecr.${var.aws_region}.amazonaws.com${var.family_name}:${var.ecr_image_tag}",
+      "image": "${var.aws_ecr_account_url}/${var.family_name}:${var.ecr_image_tag}",
       "cpu": 0,
       "portMappings": [],
       "essential": true,

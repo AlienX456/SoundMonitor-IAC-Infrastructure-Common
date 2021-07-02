@@ -14,8 +14,8 @@ variable "aws_region" {
   default = "us-east-1"
 }
 
-variable "aws_account_id" {
-  description = "AWS account id to deploy"
+variable "aws_ecr_account_url" {
+  description = "ECR url"
 }
 
 variable "cpu" {
