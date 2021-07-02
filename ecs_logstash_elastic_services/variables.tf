@@ -1,7 +1,7 @@
 /*
   SERVICE
 */
-variable "family-name" {
+variable "family_name" {
   description = "family of the logstash service"
 }
 

@@ -1,5 +1,5 @@
 resource "aws_ecs_task_definition" "main" {
-  family = var.family-name
+  family = var.family_name
   container_definitions = <<EOF
   [
     {
@@ -16,10 +16,6 @@ resource "aws_ecs_task_definition" "main" {
           {
               "name": "KAFKA_BOOTSTRAP_SERVER_ONE",
               "value": "${var.kafka_bootstrap_server_one}"
-          },
-          {
-              "name": "KAFKA_PROCESS_RESULT_EVENT",
-              "value": "${var.kafka_process_result_event}"
           },
           {
               "name": "USER",
