@@ -24,6 +24,6 @@ data "aws_iam_policy_document" "ecs-task-assume-role" {
   }
 }
 
-data "aws_iam_policy" "ecs-task-execution-role" {
+data "aws_iam_policy" "policy-task-execution-role" {
   arn = "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"
 }
