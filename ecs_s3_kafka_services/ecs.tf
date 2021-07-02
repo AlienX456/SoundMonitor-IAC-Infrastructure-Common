@@ -5,11 +5,6 @@ resource "aws_ecs_service" "main" {
   launch_type = "FARGATE"
   desired_count = var.number_of_tasks
 
-  lifecycle {
-    ignore_changes = [
-      desired_count]
-  }
-
   network_configuration {
     subnets          = [data.aws_subnet.main.id]
     assign_public_ip = true
