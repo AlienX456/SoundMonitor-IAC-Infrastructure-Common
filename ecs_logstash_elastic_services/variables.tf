@@ -34,20 +34,8 @@ variable "aws_provider_secret" {
   description = "AWS secret for deploy and infrastructure providing"
 }
 
-variable "aws_es_key_id" {
-  description = "AWS key for elastic"
-}
-
-variable "aws_es_key_secret" {
-  description = "AWS secret for elastic"
-}
-
 variable "ecr_image_tag" {
   description = "Inferencer latest image tag"
-}
-
-variable "kafka_process_result_event" {
-  description = "Kafka event of process result"
 }
 
 variable "kafka_bootstrap_server_one" {

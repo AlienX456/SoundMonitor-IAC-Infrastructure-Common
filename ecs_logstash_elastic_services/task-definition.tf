@@ -10,14 +10,6 @@ resource "aws_ecs_task_definition" "main" {
       "essential": true,
       "environment": [
           {
-              "name": "AWS_ACCESS_KEY_ID",
-              "value": "${var.aws_es_key_id}"
-          },
-          {
-              "name": "AWS_SECRET_ACCESS_KEY",
-              "value": "${var.aws_es_key_secret}"
-          },
-          {
               "name": "AWS_ELASTIC_ENDPOINT",
               "value": "${data.aws_elasticsearch_domain.domain.endpoint}"
           },
@@ -36,10 +28,6 @@ resource "aws_ecs_task_definition" "main" {
           {
               "name": "PASSWORD",
               "value": "${var.password}"
-          },
-          {
-              "name": "INDEX_NAME",
-              "value": "${var.index_name}"
           }
       ],
       "mountPoints": [],
