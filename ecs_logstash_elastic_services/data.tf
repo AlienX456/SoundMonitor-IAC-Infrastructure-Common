@@ -2,6 +2,10 @@ data "aws_ecs_cluster" "soundmonitor" {
   cluster_name = "sound-monitor-cluster"
 }
 
+data "aws_elasticsearch_domain" "domain" {
+  domain_name = "soundmonitor-elasticsearch"
+}
+
 data "aws_subnet" "main" {
   filter {
     name   = "tag:Name"
