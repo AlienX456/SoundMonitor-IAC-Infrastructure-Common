@@ -48,5 +48,5 @@ resource "aws_ecs_task_definition" "main" {
   memory = "${var.memory}"
   requires_compatibilities = ["FARGATE"]
   network_mode = "awsvpc"
-  execution_role_arn = aws_iam_role.monitor-logstash-execution-role.arn
+  execution_role_arn = aws_iam_role.execution-role.arn
 }
