@@ -18,7 +18,7 @@ variable "aws_ecr_account_url" {
   description = "ECR url"
 }
 
-variable "cpu" {
+variable "device_selector" {
   description = "CPU cpu units"
 }
 
@@ -30,6 +30,11 @@ variable "number_of_tasks" {
   description = "Number of the tasks to be deploy"
   default = 1
 }
+
+variable "cpu" {
+  description = "CPU cpu units"
+}
+
 /*
   CONTAINER
 */
