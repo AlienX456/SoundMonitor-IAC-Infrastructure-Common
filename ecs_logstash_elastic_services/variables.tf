@@ -61,3 +61,7 @@ variable "user" {
 variable "password" {
   description =  ""
 }
+
+variable "index_name" {
+  description = "Index of elastic to upload data"
+}

@@ -36,6 +36,10 @@ resource "aws_ecs_task_definition" "main" {
           {
               "name": "PASSWORD",
               "value": "${var.password}"
+          },
+          {
+              "name": "INDEX_NAME",
+              "value": "${var.index_name}"
           }
       ],
       "mountPoints": [],
