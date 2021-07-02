@@ -1,45 +1,45 @@
+data "aws_elasticsearch_domain" "domain" {
+  domain_name = "soundmonitor-elasticsearch"
+}
+
 resource "aws_ecs_task_definition" "main" {
   family = var.family-name
   container_definitions = <<EOF
   [
     {
       "name": "sound-monitor-container",
-      "image": "${var.ecr_image_repo}:${var.ecr_image_tag}",
+      "image": "602326443068.dkr.ecr.us-east-1.amazonaws.com/soundmonitor-logstash:${var.ecr_image_tag}",
       "cpu": 0,
       "portMappings": [],
       "essential": true,
       "environment": [
           {
-              "name": "DEVICE_NAME",
-              "value": "${var.device_selector}"
+              "name": "AWS_ACCESS_KEY_ID",
+              "value": "${var.aws_es_key_id}"
           },
           {
-              "name": "GROUP_ID",
-              "value": "${var.kafka_group_id}"
+              "name": "AWS_SECRET_ACCESS_KEY",
+              "value": "${var.aws_es_key_secret}"
           },
           {
-              "name": "DATA_UPLOAD_EVENT",
-              "value": "${var.kafka_upload_topic_name}"
+              "name": "AWS_ELASTIC_ENDPOINT",
+              "value": "${data.aws_elasticsearch_domain.domain.endpoint}"
           },
           {
               "name": "KAFKA_BOOTSTRAP_SERVER_ONE",
               "value": "${var.kafka_bootstrap_server_one}"
           },
           {
-              "name": "ENCODE_FORMAT",
-              "value": "${var.kafka_encode_format}"
+              "name": "KAFKA_PROCESS_RESULT_EVENT",
+              "value": "${var.kafka_process_result_event}"
           },
           {
-              "name": "PROCESS_RESULT_EVENT",
-              "value": "${var.kafka_result_topic_name}"
+              "name": "USER",
+              "value": "${var.user}"
           },
           {
-              "name": "BUCKET_NAME",
-              "value": "${var.records_bucket_name}"
-          },
-          {
-              "name": "MAPPER_URL",
-              "value": "${var.mapper_url}"
+              "name": "PASSWORD",
+              "value": "${var.password}"
           }
       ],
       "mountPoints": [],
@@ -47,7 +47,7 @@ resource "aws_ecs_task_definition" "main" {
       "logConfiguration": {
           "logDriver": "awslogs",
           "options": {
-              "awslogs-group": "/ecs/${var.service-name}",
+              "awslogs-group": "/ecs/monitor-logstash",
               "awslogs-region": "us-east-1",
               "awslogs-stream-prefix": "ecs"
           }
@@ -60,6 +60,5 @@ resource "aws_ecs_task_definition" "main" {
   memory = "${var.memory}"
   requires_compatibilities = ["FARGATE"]
   network_mode = "awsvpc"
-  execution_role_arn = aws_iam_role.task-execution-role.arn
-  task_role_arn = data.aws_iam_role.s3-role.arn
+  execution_role_arn = aws_iam_role.monitor-logstash-execution-role.arn
 }
