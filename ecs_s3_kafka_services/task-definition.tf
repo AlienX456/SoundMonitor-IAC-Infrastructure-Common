@@ -1,10 +1,10 @@
 resource "aws_ecs_task_definition" "main" {
-  family = var.family-name
+  family = var.family_name
   container_definitions = <<EOF
   [
     {
       "name": "sound-monitor-container",
-      "image": "${var.ecr_image_repo}:${var.ecr_image_tag}",
+      "image": "${var.aws_ecr_account_url}/${var.family_name}:${var.ecr_image_tag}",
       "cpu": 0,
       "portMappings": [],
       "essential": true,

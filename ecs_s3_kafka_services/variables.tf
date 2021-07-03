@@ -7,7 +7,7 @@ variable "service-name" {
   description = "Name of the ECS service"
 }
 
-variable "family-name" {
+variable "family_name" {
   description = "Family for task definition"
 }
 
@@ -81,8 +81,8 @@ variable "ecr_image_tag" {
   description = "Inferencer latest image tag"
 }
 
-variable "ecr_image_repo" {
-  description = "Image repository"
+variable "aws_ecr_account_url" {
+  description = "ECR url"
 }
 
 variable "records_bucket_name" {
