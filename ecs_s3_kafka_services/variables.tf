@@ -96,3 +96,12 @@ variable "records_bucket_name" {
 variable "device_selector" {
   description =  "Device cpu/gpu to use"
 }
+
+/*
+  Elastic
+*/
+
+variable "index_name" {
+  description = "index associated"
+  default = ""
+}
