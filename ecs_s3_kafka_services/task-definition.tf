@@ -42,7 +42,7 @@ resource "aws_ecs_task_definition" "main" {
               "value": "${var.mapper_url}"
           },
           {
-              "name": ELASTIC_INDEX_NAME",
+              "name": "ELASTIC_INDEX_NAME",
               "value": "${var.index_name}"
           }
       ],
