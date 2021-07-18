@@ -1,5 +1,5 @@
 resource "aws_lambda_permission" "allow_bucket-1" {
-  statement_id  = "AllowExecutionFromS3Bucket"
+  statement_id  = "AllowExecutionFromS3Bucket_${data.aws_s3_bucket.s-1.bucket}"
   action        = "lambda:InvokeFunction"
   function_name = aws_lambda_function.func.arn
   principal     = "s3.amazonaws.com"
@@ -7,7 +7,7 @@ resource "aws_lambda_permission" "allow_bucket-1" {
 }
 
 resource "aws_lambda_permission" "allow_bucket-2" {
-  statement_id  = "AllowExecutionFromS3Bucket"
+  statement_id  = "AllowExecutionFromS3Bucket_${data.aws_s3_bucket.s-2.bucket}"
   action        = "lambda:InvokeFunction"
   function_name = aws_lambda_function.func.arn
   principal     = "s3.amazonaws.com"
