@@ -26,8 +26,8 @@ resource "aws_s3_bucket_notification" "bucket_notification-s1" {
 
 }
 
-resource "aws_s3_bucket_notification" "bucket_notification-s1" {
-  bucket = data.aws_s3_bucket.s-1.bucket
+resource "aws_s3_bucket_notification" "bucket_notification-s2" {
+  bucket = data.aws_s3_bucket.s-2.bucket
 
   lambda_function {
     lambda_function_arn = aws_lambda_function.func.arn
