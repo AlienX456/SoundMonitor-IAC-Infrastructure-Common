@@ -14,7 +14,7 @@ resource "aws_lambda_permission" "allow_bucket-2" {
   source_arn    = data.aws_s3_bucket.s-2.arn
 }
 
-resource "aws_s3_bucket_notification" "bucket_notification" {
+resource "aws_s3_bucket_notification" "bucket_notification-s1" {
   bucket = data.aws_s3_bucket.s-1.bucket
 
   lambda_function {
@@ -26,7 +26,7 @@ resource "aws_s3_bucket_notification" "bucket_notification" {
 
 }
 
-resource "aws_s3_bucket_notification" "bucket_notification" {
+resource "aws_s3_bucket_notification" "bucket_notification-s1" {
   bucket = data.aws_s3_bucket.s-1.bucket
 
   lambda_function {
