@@ -25,5 +25,5 @@ data "aws_iam_policy" "ecs-task-execution-role" {
 }
 
 data "aws_iam_role" "s3-role" {
-  name = "SoundMonitor-S3AcessRole"
+  name = "SoundMonitor-S3AccessRole"
 }
