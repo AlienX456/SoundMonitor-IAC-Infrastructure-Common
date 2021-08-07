@@ -4,7 +4,7 @@ resource "aws_subnet" "soundmonitor-mainsubnet" {
     availability_zone       = "us-east-1a"
     map_public_ip_on_launch = false
 
-    tags {
+    tags = {
         Name = "soundmonitor-mainsubnet"
     }
 }
@@ -15,7 +15,7 @@ resource "aws_subnet" "soundmonitor-alternativesubnet" {
     availability_zone       = "us-east-1b"
     map_public_ip_on_launch = false
 
-    tags {
+    tags = {
         Name = "soundmonitor-alternativesubnet"
     }
 }
