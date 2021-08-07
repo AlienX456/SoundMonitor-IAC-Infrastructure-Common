@@ -1,8 +1,8 @@
+
 version: 2.1
 
 orbs:
   aws-ecr: circleci/aws-ecr@6.12.2
-  sonarcloud: sonarsource/sonarcloud@1.0.2
 
 jobs:
   infrastructure-providing-and-deploy:
@@ -13,18 +13,18 @@ jobs:
       - run:
           name: Terraform init
           command: |
-            cd IAC &&
+            cd init_sound_monitor_iac &&
             terraform init
       - run:
           name: Terraform provide and deploy
           command: |
-            cd IAC &&
-            terraform apply -auto-approve -var="ecr_image_tag=${CIRCLE_SHA1}"
-
+            cd init_sound_monitor_iac &&
+            terraform apply -auto-approve
 workflows:
   main:
     jobs:
       - infrastructure-providing-and-deploy:
           context:
-            - TerraformContextTest
+            - TerraformContext
+
 
