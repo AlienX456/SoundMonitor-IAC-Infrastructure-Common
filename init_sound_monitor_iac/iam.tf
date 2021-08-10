@@ -43,5 +43,5 @@ resource "aws_iam_policy_attachment" "sound_monitor_policy_attachment" {
     policy_arn = aws_iam_policy.sound_monitor_s3_policy.arn
     groups     = []
     users      = []
-    roles      = ["SoundMonitor-S3AcessRole"]
+    roles      = [aws_iam_role.sound_monitor_role.name]
 }
