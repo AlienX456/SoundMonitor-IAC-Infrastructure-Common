@@ -8,27 +8,27 @@ Repository for shared and Template infrastructure
 Crear contextos en circleCI
 
 #### Terraform context:
-  AWS_ACCESS_KEY_ID	
-  AWS_REGION
-  AWS_SECRET_ACCESS_KEY	
-  TF_VAR_account_id
-  TF_VAR_aws_ecr_account_url	
-  TF_VAR_aws_provider_key
-  TF_VAR_aws_provider_secret
-  TF_VAR_kafka_bootstrap_server_one	
+  AWS_ACCESS_KEY_ID	<br>
+  AWS_REGION <br>
+  AWS_SECRET_ACCESS_KEY	<br>
+  TF_VAR_account_id <br>
+  TF_VAR_aws_ecr_account_url <br>
+  TF_VAR_aws_provider_key <br>
+  TF_VAR_aws_provider_secret <br>
+  TF_VAR_kafka_bootstrap_server_one <br>
 
 #### KafkaVisualUploadContext:
-  TF_VAR_index_name
-  TF_VAR_kafka_result_topic_name
-  TF_VAR_kafka_upload_topic_name
-  TF_VAR_records_bucket_name
+  TF_VAR_index_name <br>
+  TF_VAR_kafka_result_topic_name <br>
+  TF_VAR_kafka_upload_topic_name <br>
+  TF_VAR_records_bucket_name <br>
 
 #### KafkaAudioUploadContext:
-  TF_VAR_index_name
-  TF_VAR_kafka_result_topic_name	
-  TF_VAR_kafka_upload_topic_name	
-  TF_VAR_records_bucket_name
+  TF_VAR_index_name <br>
+  TF_VAR_kafka_result_topic_name <br>
+  TF_VAR_kafka_upload_topic_name <br>
+  TF_VAR_records_bucket_name <br>
   
 #### ElasticContext:
-  TF_VAR_password	
-  TF_VAR_user
+  TF_VAR_password	<br>
+  TF_VAR_user <br>
