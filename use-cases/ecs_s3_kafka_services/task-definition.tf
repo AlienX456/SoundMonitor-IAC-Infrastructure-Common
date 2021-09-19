@@ -19,7 +19,7 @@ resource "aws_ecs_task_definition" "main" {
           },
           {
               "name": "DATA_UPLOAD_EVENT",
-              "value": "${local.topic-index-mapping-json.kafka-upload-topic_name}"
+              "value": "${local.topic-index-mapping-json.kafka-upload-topic-name}"
           },
           {
               "name": "KAFKA_BOOTSTRAP_SERVER_ONE",
