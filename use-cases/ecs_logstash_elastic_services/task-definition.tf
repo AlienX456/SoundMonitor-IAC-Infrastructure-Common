@@ -1,5 +1,5 @@
 resource "aws_ecs_task_definition" "main" {
-  family = var.family_name
+  family                = var.family_name
   container_definitions = <<EOF
   [
     {
@@ -40,9 +40,9 @@ resource "aws_ecs_task_definition" "main" {
   ]
   EOF
 
-  cpu = "${var.cpu}"
-  memory = "${var.memory}"
+  cpu                      = var.cpu
+  memory                   = var.memory
   requires_compatibilities = ["FARGATE"]
-  network_mode = "awsvpc"
-  execution_role_arn = aws_iam_role.task-execution-role.arn
+  network_mode             = "awsvpc"
+  execution_role_arn       = aws_iam_role.task-execution-role.arn
 }

@@ -1,6 +1,6 @@
 variable "aws_region" {
   description = "aws region to deploy"
-  default = "us-east-1"
+  default     = "us-east-1"
 }
 
 variable "aws_provider_key" {
@@ -12,5 +12,5 @@ variable "aws_provider_secret" {
 }
 
 variable "kafka_bootstrap_server_one" {
-  description =  "Endpoint of kafka server one"
+  description = "Endpoint of kafka server one"
 }

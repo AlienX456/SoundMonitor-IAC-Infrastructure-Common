@@ -1,10 +1,10 @@
 resource "aws_ecs_task_definition" "main" {
-  family = var.family_name
+  family                = local.names.family
   container_definitions = <<EOF
   [
     {
       "name": "sound-monitor-container",
-      "image": "${var.aws_ecr_account_url}/${var.family_name}:${var.ecr_image_tag}",
+      "image": "${var.aws_ecr_account_url}/${local.names.family}:${var.ecr_image_tag}",
       "cpu": 0,
       "portMappings": [],
       "essential": true,
@@ -15,11 +15,11 @@ resource "aws_ecs_task_definition" "main" {
           },
           {
               "name": "GROUP_ID",
-              "value": "${var.kafka_group_id}"
+              "value": "${local.names.family}"
           },
           {
               "name": "DATA_UPLOAD_EVENT",
-              "value": "${var.kafka_upload_topic_name}"
+              "value": "${local.topic-index-mapping-json.kafka-upload-topic_name}"
           },
           {
               "name": "KAFKA_BOOTSTRAP_SERVER_ONE",
@@ -31,11 +31,11 @@ resource "aws_ecs_task_definition" "main" {
           },
           {
               "name": "PROCESS_RESULT_EVENT",
-              "value": "${var.kafka_result_topic_name}"
+              "value": "${local.topic-index-mapping-json.kafka-result-topic-name}"
           },
           {
               "name": "BUCKET_NAME",
-              "value": "${var.records_bucket_name}"
+              "value": "${local.topic-index-mapping-json.bucket-name}"
           },
           {
               "name": "MAPPER_URL",
@@ -43,7 +43,7 @@ resource "aws_ecs_task_definition" "main" {
           },
           {
               "name": "ELASTIC_INDEX_NAME",
-              "value": "${var.index_name}"
+              "value": "${local.topic-index-mapping-json.index-name}"
           }
       ],
       "mountPoints": [],
@@ -51,7 +51,7 @@ resource "aws_ecs_task_definition" "main" {
       "logConfiguration": {
           "logDriver": "awslogs",
           "options": {
-              "awslogs-group": "/ecs/${var.service-name}",
+              "awslogs-group": "/ecs/${local.names.service}",
               "awslogs-region": "us-east-1",
               "awslogs-stream-prefix": "ecs"
           }
@@ -60,10 +60,10 @@ resource "aws_ecs_task_definition" "main" {
   ]
   EOF
 
-  cpu = "${var.cpu}"
-  memory = "${var.memory}"
+  cpu                      = var.cpu
+  memory                   = var.memory
   requires_compatibilities = ["FARGATE"]
-  network_mode = "awsvpc"
-  execution_role_arn = aws_iam_role.task-execution-role.arn
-  task_role_arn = data.aws_iam_role.s3-role.arn
+  network_mode             = "awsvpc"
+  execution_role_arn       = aws_iam_role.task-execution-role.arn
+  task_role_arn            = data.aws_iam_role.s3-role.arn
 }

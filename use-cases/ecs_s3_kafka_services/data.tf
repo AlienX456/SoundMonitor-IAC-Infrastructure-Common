@@ -14,7 +14,7 @@ data "aws_iam_policy_document" "ecs-task-assume-role" {
     actions = ["sts:AssumeRole"]
 
     principals {
-      type = "Service"
+      type        = "Service"
       identifiers = ["ecs-tasks.amazonaws.com"]
     }
   }

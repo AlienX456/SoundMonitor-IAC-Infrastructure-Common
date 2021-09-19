@@ -11,7 +11,7 @@ variable "service-name" {
 
 variable "aws_region" {
   description = "AWS Region to deploy"
-  default = "us-east-1"
+  default     = "us-east-1"
 }
 
 variable "aws_ecr_account_url" {
@@ -28,7 +28,7 @@ variable "memory" {
 
 variable "number_of_tasks" {
   description = "Number of the tasks to be deploy"
-  default = 1
+  default     = 1
 }
 
 variable "cpu" {
@@ -52,13 +52,13 @@ variable "ecr_image_tag" {
 }
 
 variable "kafka_bootstrap_server_one" {
-  description =  "Endpoint of kafka server one"
+  description = "Endpoint of kafka server one"
 }
 
 variable "user" {
-  description =  ""
+  description = ""
 }
 
 variable "password" {
-  description =  ""
+  description = ""
 }

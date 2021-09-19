@@ -3,17 +3,13 @@
   SERVICE CONFIG
 */
 
-variable "service-name" {
-  description = "Name of the ECS service"
-}
-
-variable "family_name" {
-  description = "Family for task definition"
+variable "repository-name" {
+  description = "Name of repository"
 }
 
 variable "number_of_tasks" {
   description = "Number of the tasks to be deploy"
-  default = 1
+  default     = 1
 }
 variable "cpu" {
   description = "CPU cpu units"
@@ -22,13 +18,18 @@ variable "cpu" {
 variable "memory" {
   description = "Memory units"
 }
+
+variable "process-type" {
+  description = "service process type"
+}
+
 /*
   AWS CONFIG
 */
 
 variable "aws_region" {
   description = "AWS Region to deploy"
-  default = "us-east-1"
+  default     = "us-east-1"
 }
 
 variable "aws_provider_key" {
@@ -51,25 +52,13 @@ variable "mapper_url" {
   KAFKA CONFIGURATION
 */
 
-variable "kafka_group_id" {
-  description = "Kafka inferencers group id"
-}
-
-variable "kafka_upload_topic_name" {
-  description = "Name of the topic to upload the events"
-}
-
-variable "kafka_result_topic_name" {
-  description = "Name of the topic to save the results"
-}
-
 variable "kafka_encode_format" {
   description = "encode format"
-  default = "utf-8"
+  default     = "utf-8"
 }
 
 variable "kafka_bootstrap_server_one" {
-  description =  "Endpoint of kafkaserver"
+  description = "Endpoint of kafkaserver"
 }
 
 
@@ -85,23 +74,10 @@ variable "aws_ecr_account_url" {
   description = "ECR url"
 }
 
-variable "records_bucket_name" {
-  description =  "Bucket name of the records to be processed"
-}
-
 /*
   DEVICE
 */
 
 variable "device_selector" {
-  description =  "Device cpu/gpu to use"
-}
-
-/*
-  Elastic
-*/
-
-variable "index_name" {
-  description = "index associated"
-  default = ""
+  description = "Device cpu/gpu to use"
 }
