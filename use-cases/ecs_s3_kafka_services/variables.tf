@@ -3,7 +3,7 @@
   SERVICE CONFIG
 */
 
-variable "repository-name" {
+variable "repository_name" {
   description = "Name of repository"
 }
 
