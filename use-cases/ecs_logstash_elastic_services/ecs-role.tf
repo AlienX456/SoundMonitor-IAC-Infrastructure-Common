@@ -1,5 +1,5 @@
 resource "aws_iam_role" "task-execution-role" {
-  name               = "${var.service-name}-task-execution-role"
+  name               = "${local.names.service}-task-execution-role"
   assume_role_policy = data.aws_iam_policy_document.ecs-task-assume-role.json
 }
 
