@@ -16,7 +16,7 @@ resource "aws_ecs_task_definition" "main" {
           {
               "name": "KAFKA_BOOTSTRAP_SERVER_ONE",
               "value": "${var.kafka_bootstrap_server_one}"
-          },
+          }
       ],
       "secrets": [
           {
