@@ -1,12 +1,9 @@
 /*
   SERVICE
 */
-variable "family_name" {
-  description = "family of the logstash service"
-}
 
-variable "service-name" {
-  description = "name of the service"
+variable "repository_name" {
+  description = "Name of repository"
 }
 
 variable "aws_region" {
@@ -53,12 +50,4 @@ variable "ecr_image_tag" {
 
 variable "kafka_bootstrap_server_one" {
   description = "Endpoint of kafka server one"
-}
-
-variable "user" {
-  description = ""
-}
-
-variable "password" {
-  description = ""
 }

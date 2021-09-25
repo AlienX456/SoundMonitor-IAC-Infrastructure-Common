@@ -1,5 +1,5 @@
 resource "aws_ecs_service" "main" {
-  name            = var.service-name
+  name            = local.names.service
   cluster         = data.aws_ecs_cluster.soundmonitor.arn
   task_definition = aws_ecs_task_definition.main.arn
   launch_type     = "FARGATE"

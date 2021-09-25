@@ -1,10 +1,10 @@
 resource "aws_ecs_task_definition" "main" {
-  family                = var.family_name
+  family                = local.names.family
   container_definitions = <<EOF
   [
     {
       "name": "sound-monitor-container",
-      "image": "${var.aws_ecr_account_url}/${var.family_name}:${var.ecr_image_tag}",
+      "image": "${var.aws_ecr_account_url}/${local.names.family}:${var.ecr_image_tag}",
       "cpu": 0,
       "portMappings": [],
       "essential": true,
@@ -17,13 +17,15 @@ resource "aws_ecs_task_definition" "main" {
               "name": "KAFKA_BOOTSTRAP_SERVER_ONE",
               "value": "${var.kafka_bootstrap_server_one}"
           },
+      ],
+      "secrets": [
           {
               "name": "USER",
-              "value": "${var.user}"
+              "valueFrom": "${data.aws_secretsmanager_secret.elastic-secret.arn}:user::"
           },
           {
               "name": "PASSWORD",
-              "value": "${var.password}"
+              "valueFrom": "${data.aws_secretsmanager_secret.elastic-secret.arn}:password::"
           }
       ],
       "mountPoints": [],
@@ -31,7 +33,7 @@ resource "aws_ecs_task_definition" "main" {
       "logConfiguration": {
           "logDriver": "awslogs",
           "options": {
-              "awslogs-group": "/ecs/${var.service-name}",
+              "awslogs-group": "/ecs/${local.names.service}",
               "awslogs-region": "us-east-1",
               "awslogs-stream-prefix": "ecs"
           }
