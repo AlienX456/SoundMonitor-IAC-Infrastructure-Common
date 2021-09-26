@@ -13,7 +13,7 @@ jobs:
       - run:
           name: Terraform init
           command: |
-            cd init_sound_monitor_iac &&
+            cd use-cases/init_sound_monitor_iac &&
             terraform init
       - run:
           name: Terraform provide and deploy
