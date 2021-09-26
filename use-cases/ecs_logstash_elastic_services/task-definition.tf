@@ -21,11 +21,11 @@ resource "aws_ecs_task_definition" "main" {
       "secrets": [
           {
               "name": "USER",
-              "valueFrom": "${data.aws_secretsmanager_secret.elastic-secret.arn}"
+              "valueFrom": "${data.aws_ssm_parameter.elastic-secret-user.arn}"
           },
           {
               "name": "PASSWORD",
-              "valueFrom": "${data.aws_secretsmanager_secret.elastic-secret.arn}"
+              "valueFrom": "${data.aws_ssm_parameter.elastic-secret-pass.arn}"
           }
       ],
       "mountPoints": [],

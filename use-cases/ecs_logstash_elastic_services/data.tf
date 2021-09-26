@@ -28,6 +28,18 @@ data "aws_iam_policy" "policy-task-execution-role" {
   arn = "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"
 }
 
-data "aws_secretsmanager_secret" "elastic-secret" {
-  name = "SoundMonitor-ElasticSecret"
+data "aws_ssm_parameter" "elastic-secret-user" {
+  name = "SoundMonitor-ElasticUser"
+}
+
+data "aws_ssm_parameter" "elastic-secret-pass" {
+  name = "SoundMonitor-ElasticPassword"
+}
+
+data "aws_iam_policy" "ssm_policy_elastic_user" {
+  name = "SoundMonitor-AccessElasticUser"
+}
+
+data "aws_iam_policy" "ssm_policy_elastic_password" {
+  name = "SoundMonitor-AccessElasticPass"
 }
