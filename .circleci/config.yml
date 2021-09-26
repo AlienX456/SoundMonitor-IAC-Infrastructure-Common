@@ -26,5 +26,9 @@ workflows:
       - infrastructure-providing-and-deploy:
           context:
             - TerraformContext
+          filters:
+            branches:
+              only:
+                - master
 
 
