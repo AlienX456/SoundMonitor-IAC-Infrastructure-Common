@@ -18,7 +18,7 @@ jobs:
       - run:
           name: Terraform provide and deploy
           command: |
-            cd init_sound_monitor_iac &&
+            cd use-cases/init_sound_monitor_iac &&
             terraform apply -auto-approve
 workflows:
   main:
